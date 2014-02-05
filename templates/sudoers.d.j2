@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% for i in sudoers %}
+{{i}} ALL=(ALL) {% if sudoers_nopasswd %}NOPASSWD: {% endif %}ALL
+{% endfor %}
