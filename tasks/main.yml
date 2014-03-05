@@ -1,6 +1,6 @@
 ---
 - name: Install sudo (Debian-like)
-  apt: pkg=sudo state=installed update_cache=yes cache_valid_time={{ apt_cache_valid_time }}
+  apt: pkg=sudo state=installed update_cache=yes cache_valid_time={{ sudoers_apt_cache_valid_time }}
   when: ansible_os_family == "Debian"
 
 - name: Install sudo (RedHat-like)
