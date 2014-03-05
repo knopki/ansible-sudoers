@@ -1,0 +1,18 @@
+---
+- hosts: all
+  sudo: yes
+
+  vars:
+    sudoers_users:
+      - "vagrant"
+      - "nobody"
+    sudoers_filename: "testing"
+    sudoers:
+      - "test"
+
+  tasks:
+    - name: add test user
+      user: name=test state=present
+
+  roles:
+    - .
