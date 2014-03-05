@@ -2,7 +2,7 @@
 
 This role installs sudo package, ensure that /etc/sudoers.d included and
 create or remove sudoers files in /etc/sudoers.d.
-For now, each user has full sudo access, and global setting determines whether
+For now, each sudoer has access to all commands within a variable set of users, and global setting determines whether
 NOPASSWD is set or not.
 
 ## Variables
@@ -11,6 +11,8 @@ NOPASSWD is set or not.
  * sudoers - A list of users who have sudo access. Use '%foo' to specify that
    users in a given group have sudo access.
    * defaults: []
+ * sudoers_users - A list of users the sudoers can impersonate.
+   * defaults: ["ALL"]
  * sudoers_nopasswd - if set, NOPASSWD is added to all sudoers entries. Use this
    when users don't have passwords set.
    * default: true
