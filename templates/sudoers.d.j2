@@ -1,4 +1,4 @@
 # {{ ansible_managed }}
 {% for sudoer in sudoers %}
-{{ sudoer }} ALL=({{ sudoers_users | join(',') }}) {% if sudoers_nopasswd %}NOPASSWD: {% endif %}ALL
+{{ sudoer.name }} ALL=({{ sudoer.users | join(',') }}) {% if sudoers_nopasswd %}NOPASSWD: {% endif %}ALL
 {% endfor %}

@@ -3,16 +3,22 @@
   sudo: yes
 
   vars:
-    sudoers_users:
-      - "vagrant"
-      - "nobody"
     sudoers_filename: "testing"
     sudoers:
-      - "test"
+      - name: "testone"
+        users:
+          - "vagrant"
+          - "root"
+      - name: "testtwo"
+        users:
+          - "ALL"
 
   tasks:
-    - name: add test user
-      user: name=test state=present
+    - name: add test users
+      user: name={{ item }} shell=/bin/bash state=present
+      with_items:
+        - "testone"
+        - "testtwo"
 
   roles:
     - .
